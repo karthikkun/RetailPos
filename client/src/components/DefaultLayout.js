@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Spin} from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -11,15 +11,15 @@ import {
   ShoppingCartOutlined
 } from '@ant-design/icons';
 import '../resources/layout.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
-
+  const navigate = useNavigate()
   const [collapsed, setCollapsed] = useState(false)
-  const {cartItems} = useSelector(state => state.rootReducer)
+  const {cartItems, loading} = useSelector(state => state.rootReducer)
 
   const toggle = () => {
     setCollapsed(!collapsed)
@@ -31,6 +31,11 @@ const DefaultLayout = (props) => {
 
   return (
     <Layout>
+      {loading && (
+        <div className='loader-comp'>
+          <Spin size="large"/>
+        </div>
+      )}
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo"><h3>Retail POS</h3></div>
         <Menu theme="dark" defaultSelectedKeys={window.location.pathname} mode="inline">
@@ -57,7 +62,7 @@ const DefaultLayout = (props) => {
             className: 'trigger',
             onClick: toggle,
           })}
-          <div className='cart-count d-flex align-items-center'>
+          <div className='cart-count d-flex align-items-center' onClick={() => navigate('/cart')}>
             <b><p className='mt-3 mr-2'>{cartItems.length}</p></b>
             <ShoppingCartOutlined />
             </div>
