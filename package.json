@@ -1,0 +1,24 @@
+{
+  "name": "retail-pos",
+  "version": "1.0.0",
+  "description": "A retail **Point of Sale** application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karthikkun/retail-pos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karthikkun/retail-pos/issues"
+  },
+  "homepage": "https://github.com/karthikkun/retail-pos#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16"
+  }
+}
