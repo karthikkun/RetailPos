@@ -24,11 +24,6 @@ function Homepage() {
     getAllItems()
   }, [])
 
-  useEffect(() => {
-    // console.log('itemsData changed')
-    // console.log(itemsData)
-  }, [itemsData]);
-
   return (
     <DefaultLayout>
         <Row gutter={20}>{itemsData.map((each) => {
