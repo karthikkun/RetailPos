@@ -22,4 +22,24 @@ router.post('/add-item', async (req, res) => {
     }
 })
 
+router.post('/edit-item', async (req, res) => {
+    try {
+        await itemsModel.findOneAndUpdate({_id : req.body._id}, req.body)
+        res.send('item updated successfully')
+    } catch (error) {
+        console.log(req)
+        res.status(400).json(error)
+    }
+})
+
+router.post('/delete-item', async (req, res) => {
+    try {
+        await itemsModel.findOneAndDelete({_id : req.body._id})
+        res.send('item deleted successfully')
+    } catch (error) {
+        console.log(req)
+        res.status(400).json(error)
+    }
+})
+
 module.exports = router
