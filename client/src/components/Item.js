@@ -14,7 +14,7 @@ function Item({item}) {
         <img src={item.image} alt="" height='100' width='100' />
         <h4 className="price"><b>Price : ${item.price}</b></h4>
         <div className="d-flex justify-content-end">
-            <Button onClick={() => addToCart()}>Add to cart</Button>
+            <Button onClick={() => addToCart()} type='text' danger>Add to cart</Button>
         </div>
     </div>
   )
