@@ -37,3 +37,28 @@ input:focus {
     box-shadow: none !important;
     outline : none !important;
 }
+
+
+.category {
+    border: 2px solid rgba(149, 147, 147, 0.298);
+    margin-right: 50px;
+    align-items: center;
+    padding-left: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.category h4 {
+    margin-right: 25px;
+    font-size: 22px;
+}
+
+.category img {
+    margin: -1px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.selected-category {
+    border: 3px solid rgba(53, 51, 51, 0.768);
+}
