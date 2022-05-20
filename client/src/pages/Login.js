@@ -1,24 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Row, Col, Form, Input, message} from 'antd'
 import '../resources/account.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 
 function Login() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const onFinish = (values) => {
         dispatch({type : 'SHOW_LOADING'})
         axios.post('/api/user/login', values).then(res => {
             dispatch({type : 'HIDE_LOADING'})
+            localStorage.setItem('pos-user', JSON.stringify(res.data))
             message.success('login successfull')
+            navigate('/home')
         }).catch(err => {
             dispatch({type : 'HIDE_LOADING'})
             message.error('login failed')
             console.log(err)
         })
     }
+
+    useEffect(() => {
+        if(localStorage.getItem('pos-user'))
+            navigate('/home')
+    },[])
 
     return (
     <div className='account'>

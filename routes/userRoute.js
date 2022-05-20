@@ -18,8 +18,9 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const user = await userModel.findOne({empId : req.body.empId, password : req.body.password, verified : true})
-        if(user)
-            res.send('login successful')
+        if(user){
+            res.send(user)
+        }
         else{
             console.log(req)
             res.status(400).json(error)
