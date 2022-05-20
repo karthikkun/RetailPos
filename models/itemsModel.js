@@ -5,7 +5,7 @@ const itemsSchema = mongoose.Schema({
     price: {type: Number, required: true},
     category: {type: String, required: true},
     image: {type: String, required: true},
-}, {timestamp : true})
+}, {timestamps : true})
 
 const itemsModel = mongoose.model('items', itemsSchema)
 

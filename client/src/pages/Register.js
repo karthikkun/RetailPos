@@ -1,13 +1,25 @@
 import React from 'react'
-import { Button, Row, Col, Form, Input} from 'antd'
+import { Button, Row, Col, Form, Input, message} from 'antd'
 import '../resources/account.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useDispatch } from 'react-redux'
 
 function Register() {
+    const dispatch = useDispatch()
 
     const onFinish = (values) => {
-        console.log(values)
+        dispatch({type : 'SHOW_LOADING'})
+        axios.post('/api/user/register', values).then(res => {
+            dispatch({type : 'HIDE_LOADING'})
+            message.success('user registration successfully')
+        }).catch(err => {
+            dispatch({type : 'HIDE_LOADING'})
+            message.error('something went wrong')
+            console.log(err)
+        })
     }
+
     return (
     <div className='account'>
         <Row>
