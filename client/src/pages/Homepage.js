@@ -33,7 +33,7 @@ function Homepage() {
       dispatch({type : 'HIDE_LOADING'})
       setItemsData(response.data)
     }).catch(err => {
-      dispatch({type : 'SHOW_LOADING'})
+      dispatch({type : 'HIDE_LOADING'})
       console.log(err)
     })
   }  
