@@ -20,7 +20,7 @@ function Items() {
         message.success('Item added successfully')
         getAllItems()
       }).catch(err => {
-        dispatch({type : 'SHOW_LOADING'})
+        dispatch({type : 'HIDE_LOADING'})
         message.error('Something went wrong')
         console.log(err)
       })
@@ -33,7 +33,7 @@ function Items() {
         message.success('Item edited successfully')
         getAllItems()
       }).catch(err => {
-        dispatch({type : 'SHOW_LOADING'})
+        dispatch({type : 'HIDE_LOADING'})
         message.error('Something went wrong')
         console.log(err)
       })
@@ -46,7 +46,7 @@ function Items() {
       message.success('Item deleted successfully')
       getAllItems()
     }).catch(err => {
-      dispatch({type : 'SHOW_LOADING'})
+      dispatch({type : 'HIDE_LOADING'})
       message.error('Something went wrong')
       console.log(err)
     })
@@ -60,7 +60,7 @@ function Items() {
       dispatch({type : 'HIDE_LOADING'})
       setItemsData(response.data)
     }).catch(err => {
-      dispatch({type : 'SHOW_LOADING'})
+      dispatch({type : 'HIDE_LOADING'})
       console.log(err)
     })
   }  
