@@ -26,7 +26,7 @@ const DefaultLayout = (props) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  localStorage.setItem('cartItems', JSON.stringify(cartItems))
   }, [cartItems])
 
   return (
